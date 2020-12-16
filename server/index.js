@@ -2,9 +2,13 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+require('dotenv').config()
 
 const userRouter = require('./Routes/userRouter')
 const dataRouter = require('./Routes/dataRouter')
+const authRouter = require('./Routes/authRouter')
 
 const app = express()
 
@@ -15,6 +19,24 @@ app.use(bodyParser.urlencoded({extended : true}))
 
 app.use('/user', userRouter)
 app.use('/data', dataRouter)
+app.use('/auth', authRouter);
+
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "/auth/google/redirect"
+  },
+  (accessToken, refreshToken, profile, done) =>{
+	  console.log(profile)
+	  console.log('passport function')
+  }
+//   function(accessToken, refreshToken, profile, cb) {
+//     User.findOrCreate({ googleId: profile.id }, function (err, user) {
+//       return cb(err, user);
+//     });
+//   }
+));
 
 
 

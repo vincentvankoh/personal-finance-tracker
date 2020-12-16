@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
 const passport = require('passport');
+const cookieParser = require('cookie-parser')
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const cookieSession = require('cookie-session')
 require('dotenv').config()
@@ -21,19 +22,21 @@ app.use(cookieSession({maxAge: 24*60*60*1000, keys: ['kasjhfaksj']}))
 app.use(cookieSession({ maxAge: 24 * 60 * 60 * 1000, keys: ['kfhaskfh'] }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser())
 
 app.use('/user', userRouter)
 app.use('/data', dataRouter)
 app.use('/auth', authRouter);
 
 
+
 passport.serializeUser((user,done) =>{
-	console.log('inside serialize',user)
+	// console.log('inside serialize',user)
 	done(null, user.id)
 })
 
 passport.deserializeUser((id,done) =>{
-	console.log('inside desserialize',id)
+	// console.log('inside desserialize',id)
 	done(null, 10)
 })
 
@@ -51,7 +54,7 @@ passport.use(new GoogleStrategy({
 		//save user profile to users table
 		let userName = profile.displayName;
 		let pass = profile.id;
-		console.log(userName, pass)
+		// console.log(userName, pass)
 		//check if pass(unique id exist), if it does do nothing.
 		//if unique id doesn't insert one in db
 		let sqlQuery = "select * from users where password=\'"+pass+"\'";
@@ -70,11 +73,11 @@ passport.use(new GoogleStrategy({
 						} else {
 							//if no err running query, new user should be created
 							done(null,response.rows[0])
-							console.log('USER MADE')
+							// console.log('USER MADE')
 						}
 					})
 				} else {
-					console.log('UNIQUE USER IS FOUND')
+					// console.log('UNIQUE USER IS FOUND')
 					//if unique pass is found, redirect
 					done(null, response.rows[0])
 				}

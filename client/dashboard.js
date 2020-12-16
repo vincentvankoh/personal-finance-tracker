@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from "./footer";
 import Sidebar from "./sidebar";
 import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
+import Cookies from 'js-cookie'
 
 export default function Dashboard() {
+    let id
+    useEffect(() =>{
+        id = Cookies.get('id')
+        console.log(id)
+    }, [])
 
   return(
   <div className="sb-nav-fixed">

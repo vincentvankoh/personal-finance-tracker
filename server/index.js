@@ -44,7 +44,7 @@ app.use(cors)
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
 
 app.get('/', (req, res) =>
-	res.status(200).sendFile(path.resolve(__dirname, '../index.html'))
+	res.status(200).sendFile(path.resolve(__dirname, '../build/index.html'))
 );
 
 

@@ -42,9 +42,12 @@ passport.use(new GoogleStrategy({
 
 app.use(cors)
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
+
 app.get('/', (req, res) =>
 	res.status(200).sendFile(path.resolve(__dirname, '../index.html'))
 );
+
+
 
 app.listen(3000, (err) => {
 	if (err) return console.log(err);

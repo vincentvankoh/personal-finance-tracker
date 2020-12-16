@@ -30,7 +30,7 @@ export default function Login() {
                                         </div>
                                         <div className="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a className="small" href="password.html">Forgot Password?</a>
-                                            <a className="btn btn-primary" href="index.html">Google</a>
+                                            <a className="btn btn-primary" href="/auth/google">Google</a>
                                             <a className="btn btn-primary" >Facebook</a>
                                             <a className="btn btn-primary" href="index.html">Login</a>
                                         </div>

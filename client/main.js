@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import fourZeroOne from "./401";
-import LightNav from "./layout-sidenav-light";
-import StaticNav from "./layout-static";
+import Expenses from "./expenses";
+import Plan from "./plan";
 import Charts from "./charts";
 import Footer from "./footer";
 import Sidebar from "./sidebar";
 import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
 import Login from "./login";
+import Tables from "./tables";
+import Trends from "./trends";
+import Habits from "./habits";
 
 export default function Main() {
     return(
@@ -171,17 +173,26 @@ export default function Main() {
             </div>
         
             <Switch>
-                <Route path={"/layout-sidenav-light"} >
-                    <LightNav />
+                <Route path={"/plan"} >
+                    <Plan />
+                </Route>
+                <Route path={"/expenses"}>
+                    <Expenses />
                 </Route>
                 <Route path={"/charts"}>
                     <Charts />
                 </Route>
-                <Route path={"/layout-static"}>
-                    <StaticNav />
-                </Route>
                 <Route path={"/login"}>
                     <Login />
+                </Route>
+                <Route path={"/tables"} >
+                    <Tables />
+                </Route>
+                <Route path={"/trends"} >
+                    <Trends />
+                </Route>
+                <Route path={"/habits"} >
+                    <Habits />
                 </Route>
             </Switch>
         </div>

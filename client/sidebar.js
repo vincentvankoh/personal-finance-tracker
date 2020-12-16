@@ -8,10 +8,10 @@ export default function Sidebar() {
         <div className="sb-sidenav-menu">
             <div className="nav">
                 <div className="sb-sidenav-menu-heading">Monthly Summary</div>
-                <a className="nav-link" href="index.html">
+                <Link className="nav-link" to="/home">
                     <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                     Dashboard
-                </a>
+                </Link>
                 <div className="sb-sidenav-menu-heading">Plan Finances </div>
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>

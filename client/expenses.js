@@ -3,6 +3,7 @@ import Footer from "./footer";
 import Sidebar from "./sidebar";
 import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 export default function Expenses() {
   return(
@@ -16,8 +17,10 @@ export default function Expenses() {
                     <div className="container-fluid">
                         <h1 className="mt-4">Expenses</h1>
                         <ol className="breadcrumb mb-4">
-                            <li className="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li className="breadcrumb-item active">Sidenav Light</li>
+                            <li className="breadcrumb-item">
+                                <Link to="/home">Home</Link>
+                                </li>
+                            <li className="breadcrumb-item active">Expenses</li>
                         </ol>
                         <div className="card mb-4">
                             <div className="card-body">

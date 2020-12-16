@@ -6,9 +6,6 @@ import Topnav from "./topnav";
 
 export default function Dashboard() {
 
-
-
-
   return(
   <div className="sb-nav-fixed">
   <Topnav />
@@ -18,12 +15,13 @@ export default function Dashboard() {
               <Sidebar />
               <Sidebarfooter />
           </nav>
+          </div>
       <div id="layoutSidenav_content">
           <main>
               <div className="container-fluid">
-                  <h1 className="mt-4">Dashboard</h1>
+                  <h1 className="mt-4">Monthly Summary</h1>
                   <ol className="breadcrumb mb-4">
-                      <li className="breadcrumb-item active">Dashboard</li>
+                      <li className="breadcrumb-item active">Home</li>
                   </ol>
                   <div className="row">
                       <div className="col-xl-3 col-md-6">
@@ -166,6 +164,5 @@ export default function Dashboard() {
       </div>
     </div>
     </div>
-  </div>
   )
 }

@@ -7,6 +7,7 @@ const userController = {}
 userController.findAll = (req, res, next) => {
     let query = "select * from Users"
     let params = []
+    console.log('I WAS HERE')
 
     db.query(query, params, (err, result) =>{
         if(err){

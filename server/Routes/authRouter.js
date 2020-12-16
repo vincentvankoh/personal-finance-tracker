@@ -14,4 +14,6 @@ router.get(
 		res.redirect('/home/' + req.user._id);
 	});
 
+
+
 module.exports = router;

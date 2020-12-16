@@ -7,7 +7,6 @@ const userController = {}
 userController.findAll = (req, res, next) => {
     let query = "select * from Users"
     let params = []
-    console.log('I WAS HERE')
 
     db.query(query, params, (err, result) =>{
         if(err){
@@ -15,7 +14,8 @@ userController.findAll = (req, res, next) => {
             return next()
         }
         else{
-            console.log(result)
+            // console.log(result)
+            res.locals.users = result.rows
             return next()
         }
 

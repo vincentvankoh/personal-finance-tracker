@@ -4,6 +4,7 @@ const cors = require('cors')
 const path = require('path')
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const cookieSession = require('cookie-session')
 require('dotenv').config()
 const db = require('./Models/FinancialModel')
 
@@ -16,18 +17,35 @@ const app = express()
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended : true}))
+app.use(cookieSession({maxAge: 24*60*60*1000, keys: ['kasjhfaksj']}))
+app.use(cookieSession({ maxAge: 24 * 60 * 60 * 1000, keys: ['kfhaskfh'] }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/user', userRouter)
 app.use('/data', dataRouter)
 app.use('/auth', authRouter);
 
 
+passport.serializeUser((user,done) =>{
+	console.log('inside serialize',user)
+	done(null, user.id)
+})
+
+passport.deserializeUser((id,done) =>{
+	console.log('inside desserialize',id)
+	done(null, 10)
+})
+
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+	clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+	// once the user clicks on one of the accounts they are redirected to this link
     callbackURL: "/auth/google/redirect"
   },
   (accessToken, refreshToken, profile, done) =>{
-	  // console.log(profile)
+	//   console.log(profile)
 		// console.log('passport function')
 
 		//save user profile to users table
@@ -51,14 +69,14 @@ passport.use(new GoogleStrategy({
 							
 						} else {
 							//if no err running query, new user should be created
+							done(null,response.rows[0])
 							console.log('USER MADE')
-						
 						}
 					})
 				} else {
-					//if unique pass is found, redirect
 					console.log('UNIQUE USER IS FOUND')
-					
+					//if unique pass is found, redirect
+					done(null, response.rows[0])
 				}
 			}
 		})

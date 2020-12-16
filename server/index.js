@@ -65,12 +65,13 @@ passport.use(new GoogleStrategy({
 			} else {
 				if(response.rows.length === 0) {
 					//user doesn't exist, insert in db.
-					let createUser = `insert into Users (Username,Password) values ('${userName}', '${pass}')`;
+					let createUser = `insert into Users (Username,Password) values ('${userName}', '${pass}') returning *`;
 					db.query(createUser, (err, response) => {
 						if(err) {
 							console.log(err.stack)
 							
 						} else {
+							// console.log(response)
 							//if no err running query, new user should be created
 							done(null,response.rows[0])
 							// console.log('USER MADE')

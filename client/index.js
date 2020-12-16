@@ -1,12 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Main from './main';
+
 
 ReactDOM.render(
-<div>
-    hey
-    <a href="/auth/google">Sign In with Google</a>
-
-</div>,
+  <div>
+    <Main />
+  </div>,
  document.getElementById('root')
 );
 

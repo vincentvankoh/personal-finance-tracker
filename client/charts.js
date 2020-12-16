@@ -7,7 +7,7 @@ import Topnav from "./topnav";
 export default function Charts() {
   return(
     <div className="sb-nav-fixed">
-    <Topnav />
+        <Topnav />
         <div id="layoutSidenav">
             <Sidebar />
             <Sidebarfooter />

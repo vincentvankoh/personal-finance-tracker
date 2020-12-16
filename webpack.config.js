@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   entry: './client/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './build'),
     filename: 'bundle.js',
     },
   resolve: {
@@ -29,7 +29,7 @@ module.exports = {
       open: true, 
       hot: true,
       historyApiFallback: true,
-      publicPath: '/dist/',
+      publicPath: '/build/',
       proxy: {
         '/auth/google': {
           target: 'http://localhost:3000'

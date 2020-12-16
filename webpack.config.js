@@ -29,12 +29,12 @@ module.exports = {
       open: true, 
       hot: true,
       historyApiFallback: true,
-      publicPath: '/dist/'
-      // proxy: {
-      //   '/**': {
-      //     target: 'http://localhost:3000'
-      //   }
-      // }
+      publicPath: '/dist/',
+      proxy: {
+        '/auth/google': {
+          target: 'http://localhost:3000'
+        }
+      }
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

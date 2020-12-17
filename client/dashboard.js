@@ -4,6 +4,9 @@ import Sidebar from "./sidebar";
 import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
 import Cookies from 'js-cookie'
+import Line1 from "./visuals/line1";
+import Pie1 from "./visuals/pie1";
+import Bar1 from "./visuals/bar1";
 
 export default function Dashboard() {
     let id
@@ -27,43 +30,75 @@ export default function Dashboard() {
               <div className="container-fluid">
                   <h1 className="mt-4">Monthly Summary</h1>
                   <ol className="breadcrumb mb-4">
-                      <li className="breadcrumb-item active">Home</li>
+                      <li className="breadcrumb-item active">Top Metrics</li>
                   </ol>
                   <div className="row">
                       <div className="col-xl-3 col-md-6">
                           <div className="card bg-primary text-white mb-4">
-                              <div className="card-body">Primary Card</div>
+                              <div className="card-body">Total Budget</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
-                                  <a className="small text-white stretched-link" href="#">View Details</a>
-                                  <div className="small text-white"><i className="fas fa-angle-right"></i></div>
+                                  <div className="medium text-white">
+                                        $1,000
+                                    </div>
                               </div>
                           </div>
                       </div>
+                      
                       <div className="col-xl-3 col-md-6">
                           <div className="card bg-warning text-white mb-4">
-                              <div className="card-body">Warning Card</div>
+                              <div className="card-body">Total Expenses</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
-                                  <a className="small text-white stretched-link" href="#">View Details</a>
-                                  <div className="small text-white"><i className="fas fa-angle-right"></i></div>
+                                  <div className="medium text-white">
+                                      $5,000
+                                  </div>
                               </div>
                           </div>
                       </div>
                       <div className="col-xl-3 col-md-6">
                           <div className="card bg-success text-white mb-4">
-                              <div className="card-body">Success Card</div>
+                              <div className="card-body">Difference (+/-)</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
-                                  <a className="small text-white stretched-link" href="#">View Details</a>
-                                  <div className="small text-white"><i className="fas fa-angle-right"></i></div>
+                                  <div className="medium text-white">
+                                      -$4,000 (calculated)
+                                  </div>
                               </div>
                           </div>
                       </div>
                       <div className="col-xl-3 col-md-6">
                           <div className="card bg-danger text-white mb-4">
-                              <div className="card-body">Danger Card</div>
+                              <div className="card-body">Remaining Days</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
-                                  <a className="small text-white stretched-link" href="#">View Details</a>
-                                  <div className="small text-white"><i className="fas fa-angle-right"></i></div>
+                                  <div className="medium text-white">
+                                      10 Days Remaining
+                                  </div>
                               </div>
+                          </div>
+                      </div>
+                  </div>
+                  <ol className="breadcrumb mb-4">
+                      <li className="breadcrumb-item active">Budget vs Expenses</li>
+                  </ol>
+                  <div className="row">
+                      <div className="col-xl-6">
+                          <div className="card mb-4">
+                              <div className="card-header">
+                                  <i className="fas fa-chart-area mr-1"></i>
+                                  Expense % of Budget
+                              </div>
+                              <div className="card-body">
+                                <Pie1 />
+                              </div>
+                          </div>
+                      </div>
+                      <div className="col-xl-6">
+                          <div className="card mb-4">
+                              <div className="card-header">
+                                  <i className="fas fa-chart-bar mr-1"></i>
+                                  Bar Chart Example
+                              </div>
+                              <div className="card-body">
+                                  <Bar1 />
+                            </div>
                           </div>
                       </div>
                   </div>
@@ -84,12 +119,17 @@ export default function Dashboard() {
                           <div className="card mb-4">
                               <div className="card-header">
                                   <i className="fas fa-chart-bar mr-1"></i>
-                                  Bar Chart Example
+                                  Budget over time
                               </div>
-                              <div className="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                              <div className="card-body">
+                                <Line1 />
+                            </div>
                           </div>
                       </div>
                   </div>
+                  <ol className="breadcrumb mb-4">
+                      <li className="breadcrumb-item active">Meaningful Metrics</li>
+                  </ol>
                   <div className="card mb-4">
                       <div className="card-header">
                           <i className="fas fa-table mr-1"></i>

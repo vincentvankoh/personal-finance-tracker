@@ -19,7 +19,7 @@ export default function Plan() {
                                 <li className="breadcrumb-item">
                                     <Link to="/home">Home</Link>
                                     </li>
-                                <li className="breadcrumb-item active">Sidenav Light</li>
+                                <li className="breadcrumb-item active">Plan</li>
                             </ol>
                             <div className="card mb-4">
                                 <div className="card-body">

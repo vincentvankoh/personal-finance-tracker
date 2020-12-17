@@ -11,6 +11,10 @@ router.get('/', dataController.findAll, (req, res) =>{
     res.status(200).json(res.locals.allData)
 })
 
+router.get('/userData', dataController.findByUser, (req, res) =>{
+    res.status(200).json(res.locals.userData)
+})
+
 router.get('/category', dataController.findByCategory,(req, res) =>{
     res.status(200).json(res.locals.categoryItems)
  })

@@ -22,10 +22,26 @@ dataController.findAll = (req, res, next) => {
 
 }
 
+dataController.findByUser = (req, res, next) => {
+    let user = req.query.user
+    let query = `select * from Data where user_id = $1`
+    let params = [req.query.user]
+    db.query(query, params, (err, result) => {
+        if(err) {
+            console.log(err)
+            return next()
+        } else {
+            res.locals.userData = result.rows
+            return next()
+        }
+    })
+}
+
+
 dataController.findByCategory = (req,res,next) =>{
 
     let query = "select * from Data where user_id = $1 and category = $2"
-    let params = [req.body.user, req.body.category]
+    let params = [req.query.user, req.query.category]
     
     
     db.query(query, params, (err, result) =>{
@@ -51,7 +67,7 @@ dataController.findByCategory = (req,res,next) =>{
 dataController.findByGreatest= (req,res,next) =>{
 
     let query = "select * from Data where user_id = $1 order by amount desc"
-    let params = [req.body.user]
+    let params = [req.query.user]
     
     
     db.query(query, params, (err, result) =>{
@@ -75,7 +91,6 @@ dataController.findByGreatest= (req,res,next) =>{
 }
 
 dataController.add = (req,res,next) =>{
-
     let query = "insert into Data (user_id, amount, category, dates) values ($1,$2,$3,$4)"
     let params = [req.body.user,req.body.amount, req.body.category, req.body.date,]
     
@@ -86,7 +101,7 @@ dataController.add = (req,res,next) =>{
             return next()
         }
         else{
-            console.log(result)
+            // console.log(result)
             return next()
         }
     })

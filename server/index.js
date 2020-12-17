@@ -8,11 +8,12 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const cookieSession = require('cookie-session')
 require('dotenv').config()
 const db = require('./Models/FinancialModel')
-
 const userRouter = require('./Routes/userRouter')
 const dataRouter = require('./Routes/dataRouter')
 const authRouter = require('./Routes/authRouter')
 const loginRouter = require('./Routes/loginRouter')
+const budgetRouter = require('./Routes/budgetRouter')
+const expenseRouter = require('./Routes/expenseRouter')
 
 const app = express()
 
@@ -24,11 +25,13 @@ app.use(cookieSession({ maxAge: 24 * 60 * 60 * 1000, keys: ['kfhaskfh'] }))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(cookieParser())
-
+app.use(cors())
 app.use('/user', userRouter)
 app.use('/data', dataRouter)
 app.use('/auth', authRouter)
 app.use('/logout',loginRouter)
+app.use('/budget',budgetRouter)
+app.use('/expense', expenseRouter)
 
 
 
@@ -96,7 +99,7 @@ passport.use(new GoogleStrategy({
 
 
 
-app.use(cors)
+
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
 app.get('/', (req, res) =>
 	res.status(200).sendFile(path.resolve(__dirname, '../build/index.html'))

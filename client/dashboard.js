@@ -1,19 +1,29 @@
 import React, { useEffect } from 'react';
 import Footer from "./footer";
 import Sidebar from "./sidebar";
-import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
 import Cookies from 'js-cookie'
 import Line1 from "./visuals/line1";
 import Pie1 from "./visuals/pie1";
 import Bar1 from "./visuals/bar1";
+import Table1 from "./visuals/table1";
+import { useSelector } from 'react-redux';
+import { updateUserData } from "./redux/actions";
 
 export default function Dashboard() {
-    let id
-    useEffect(() =>{
-        id = Cookies.get('id')
-        console.log(id)
-    }, [])
+  const totalAmount = useSelector( state => state.generalReducer.userData) // arr of obj
+  const totalBudget = totalAmount[0] ? sumAmount(totalAmount) : null;
+  const totalExpense = totalAmount[0] ? sumAmount(totalAmount) : null;
+  const totalDifference = totalBudget - totalExpense;
+  const totalDaysLeft = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate() - new Date().getDate();
+
+  function sumAmount(x){
+    let totalAmount=0;
+    for(let i=0; i<x.length; i++){
+        totalAmount += x[i]["amount"];
+    }
+    return totalAmount;
+  } 
 
   return(
   <div className="sb-nav-fixed">
@@ -22,7 +32,6 @@ export default function Dashboard() {
       <div id="layoutSidenav_nav">
           <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
               <Sidebar />
-              <Sidebarfooter />
           </nav>
           </div>
       <div id="layoutSidenav_content">
@@ -38,7 +47,7 @@ export default function Dashboard() {
                               <div className="card-body">Total Budget</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
-                                        $1,000
+                                    { totalBudget }
                                     </div>
                               </div>
                           </div>
@@ -49,7 +58,7 @@ export default function Dashboard() {
                               <div className="card-body">Total Expenses</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
-                                      $5,000
+                                  { totalExpense }
                                   </div>
                               </div>
                           </div>
@@ -59,7 +68,7 @@ export default function Dashboard() {
                               <div className="card-body">Difference (+/-)</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
-                                      -$4,000 (calculated)
+                                      { totalDifference }
                                   </div>
                               </div>
                           </div>
@@ -69,14 +78,14 @@ export default function Dashboard() {
                               <div className="card-body">Remaining Days</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
-                                      10 Days Remaining
+                                      { totalDaysLeft }
                                   </div>
                               </div>
                           </div>
                       </div>
                   </div>
                   <ol className="breadcrumb mb-4">
-                      <li className="breadcrumb-item active">Budget vs Expenses</li>
+                      <li className="breadcrumb-item active">Top Charts</li>
                   </ol>
                   <div className="row">
                       <div className="col-xl-6">
@@ -106,24 +115,23 @@ export default function Dashboard() {
                       <div className="col-xl-6">
                           <div className="card mb-4">
                               <div className="card-header">
-                                  <i className="fas fa-chart-area mr-1"></i>
-                                  Area Chart Example
+                                  <i className="fas fa-chart-bar mr-1"></i>
+                                  Bar Chart Example
                               </div>
                               <div className="card-body">
-                                  <canvas id="myAreaChart" width="100%" height="40">
-                                  </canvas>
-                              </div>
+                                  <Bar1 />
+                            </div>
                           </div>
                       </div>
                       <div className="col-xl-6">
                           <div className="card mb-4">
                               <div className="card-header">
-                                  <i className="fas fa-chart-bar mr-1"></i>
-                                  Budget over time
+                                  <i className="fas fa-chart-area mr-1"></i>
+                                  Expense % of Budget
                               </div>
                               <div className="card-body">
-                                <Line1 />
-                            </div>
+                                <Pie1 />
+                              </div>
                           </div>
                       </div>
                   </div>
@@ -137,70 +145,7 @@ export default function Dashboard() {
                       </div>
                       <div className="card-body">
                           <div className="table-responsive">
-                              <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                  <thead>
-                                      <tr>
-                                          <th>Name</th>
-                                          <th>Position</th>
-                                          <th>Office</th>
-                                          <th>Age</th>
-                                          <th>Start date</th>
-                                          <th>Salary</th>
-                                      </tr>
-                                  </thead>
-                                  <tfoot>
-                                      <tr>
-                                          <th>Name</th>
-                                          <th>Position</th>
-                                          <th>Office</th>
-                                          <th>Age</th>
-                                          <th>Start date</th>
-                                          <th>Salary</th>
-                                      </tr>
-                                  </tfoot>
-                                  <tbody>
-                                      <tr>
-                                          <td>Tiger Nixon</td>
-                                          <td>System Architect</td>
-                                          <td>Edinburgh</td>
-                                          <td>61</td>
-                                          <td>2011/04/25</td>
-                                          <td>$320,800</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Garrett Winters</td>
-                                          <td>Accountant</td>
-                                          <td>Tokyo</td>
-                                          <td>63</td>
-                                          <td>2011/07/25</td>
-                                          <td>$170,750</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Ashton Cox</td>
-                                          <td>Junior Technical Author</td>
-                                          <td>San Francisco</td>
-                                          <td>66</td>
-                                          <td>2009/01/12</td>
-                                          <td>$86,000</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Cedric Kelly</td>
-                                          <td>Senior Javascript Developer</td>
-                                          <td>Edinburgh</td>
-                                          <td>22</td>
-                                          <td>2012/03/29</td>
-                                          <td>$433,060</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Airi Satou</td>
-                                          <td>Accountant</td>
-                                          <td>Tokyo</td>
-                                          <td>33</td>
-                                          <td>2008/11/28</td>
-                                          <td>$162,700</td>
-                                      </tr>
-                                  </tbody>
-                              </table>
+                              <Table1 />
                           </div>
                       </div>
                   </div>

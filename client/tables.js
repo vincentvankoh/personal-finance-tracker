@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from "./footer";
 import Sidebar from "./sidebar";
-import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
@@ -11,7 +10,6 @@ export default function Tables() {
         <Topnav />
         <div id="layoutSidenav">
             <Sidebar />
-            <Sidebarfooter />
             <div id="layoutSidenav_content">
                 <main>
                     <div className="container-fluid">

@@ -7,13 +7,18 @@ import Cookies from 'js-cookie'
 import Line1 from "./visuals/line1";
 import Pie1 from "./visuals/pie1";
 import Bar1 from "./visuals/bar1";
+import axios from "axios";
+import { useSelector } from 'react-redux';
+import { updateUserData } from "./redux/actions";
 
 export default function Dashboard() {
-    let id;
-    useEffect(() =>{
-        id = Cookies.get('id')
-        console.log(id)
-    }, [])
+  const totalAmount = useSelector( state => state.generalReducer.userData[0])
+
+  console.log("totalAmount", totalAmount);
+
+  useEffect(() =>{
+      
+  }, [])
 
   return(
   <div className="sb-nav-fixed">
@@ -38,7 +43,7 @@ export default function Dashboard() {
                               <div className="card-body">Total Budget</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
-                                        $1,000
+                                        { totalAmount ? totalAmount.amount : null }
                                     </div>
                               </div>
                           </div>
@@ -49,7 +54,7 @@ export default function Dashboard() {
                               <div className="card-body">Total Expenses</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
-                                      $5,000
+                                  { totalAmount ? totalAmount.amount : null }
                                   </div>
                               </div>
                           </div>

@@ -3,7 +3,8 @@ const router = express.Router();
 
 
 router.get('/', (req,res) =>{
-    res.cookie('id', '', {maxAge: 1}).redirect('/login')
+    console.log('hey')
+    res.cookie('id', '', {maxAge: 1}).redirect('/')
 })
 
 

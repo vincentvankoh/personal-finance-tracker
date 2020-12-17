@@ -22,6 +22,22 @@ dataController.findAll = (req, res, next) => {
 
 }
 
+dataController.findByUser = (req, res, next) => {
+    let user = req.body.user
+    let query = `select * from Data where user_id = $1`
+    let params = [user]
+    db.query(query, params, (err, result) => {
+        if(err) {
+            console.log(err)
+            return next()
+        } else {
+            res.locals.userData = result.rows
+            return next()
+        }
+    })
+}
+
+
 dataController.findByCategory = (req,res,next) =>{
 
     let query = "select * from Data where user_id = $1 and category = $2"

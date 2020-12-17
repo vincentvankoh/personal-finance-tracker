@@ -19,5 +19,4 @@ const reducer = (currentState = appState, action) =>{
   }
 }
 
-
 export default reducer

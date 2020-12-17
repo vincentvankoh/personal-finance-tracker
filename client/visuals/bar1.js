@@ -18,16 +18,16 @@ export default function Bar1(props) {
       <YAxis />
       <VerticalBarSeries
         data={[
-          {x: 'Apples', y: 10},
-          {x: 'Bananas', y: 5},
-          {x: 'Cranberries', y: 15}
+          {x: 'January', y: 10},
+          {x: 'February', y: 5},
+          {x: 'March', y: 15}
         ]}
       />
       <VerticalBarSeries
         data={[
-          {x: 'Apples', y: 12},
-          {x: 'Bananas', y: 2},
-          {x: 'Cranberries', y: 11}
+          {x: 'January', y: 12},
+          {x: 'February', y: 2},
+          {x: 'March', y: 11}
         ]}
       />
     </XYPlot>

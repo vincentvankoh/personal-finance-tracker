@@ -43,7 +43,7 @@ export default function Dashboard() {
                   </ol>
                   <div className="row">
                       <div className="col-xl-3 col-md-6">
-                          <div className="card bg-primary text-white mb-4">
+                          <div className="card bg-primary text-black mb-4">
                               <div className="card-body">Total Budget</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
@@ -54,7 +54,7 @@ export default function Dashboard() {
                       </div>
                       
                       <div className="col-xl-3 col-md-6">
-                          <div className="card bg-warning text-white mb-4">
+                          <div className="card bg-warning text-black mb-4">
                               <div className="card-body">Total Expenses</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
@@ -64,7 +64,7 @@ export default function Dashboard() {
                           </div>
                       </div>
                       <div className="col-xl-3 col-md-6">
-                          <div className="card bg-success text-white mb-4">
+                          <div className="card bg-success text-black mb-4">
                               <div className="card-body">Difference (+/-)</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
@@ -74,7 +74,7 @@ export default function Dashboard() {
                           </div>
                       </div>
                       <div className="col-xl-3 col-md-6">
-                          <div className="card bg-danger text-white mb-4">
+                          <div className="card bg-danger text-black mb-4">
                               <div className="card-body">Remaining Days</div>
                               <div className="card-footer d-flex align-items-center justify-content-between">
                                   <div className="medium text-white">
@@ -103,7 +103,7 @@ export default function Dashboard() {
                           <div className="card mb-4">
                               <div className="card-header">
                                   <i className="fas fa-chart-bar mr-1"></i>
-                                  Bar Chart Example
+                                Budget vs Expenses
                               </div>
                               <div className="card-body">
                                   <Bar1 />
@@ -116,7 +116,7 @@ export default function Dashboard() {
                           <div className="card mb-4">
                               <div className="card-header">
                                   <i className="fas fa-chart-bar mr-1"></i>
-                                  Bar Chart Example
+                                  Expenses vs Budget
                               </div>
                               <div className="card-body">
                                   <Bar1 />
@@ -136,12 +136,12 @@ export default function Dashboard() {
                       </div>
                   </div>
                   <ol className="breadcrumb mb-4">
-                      <li className="breadcrumb-item active">Meaningful Metrics</li>
+                      <li className="breadcrumb-item active">Detailed Metrics</li>
                   </ol>
                   <div className="card mb-4">
                       <div className="card-header">
                           <i className="fas fa-table mr-1"></i>
-                          DataTable Example
+                          Table of Expenses 
                       </div>
                       <div className="card-body">
                           <div className="table-responsive">

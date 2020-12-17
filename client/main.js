@@ -25,11 +25,11 @@ export default function Main() {
         })
         .catch(err =>console.log("error", err))
 
-        axios.post("http://localhost:3000/data/add" , {user: 'b'})
-        .then(res => {
-            console.log(res);
-        })
-        .catch(err =>console.log("error", err))
+        // axios.post("http://localhost:3000/data/add" , {user: 'b'})
+        // .then(res => {
+        //     console.log(res);
+        // })
+        // .catch(err =>console.log("error", err))
     }, []);
     
     return(

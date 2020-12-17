@@ -15,7 +15,7 @@ export default function Field2() {
         return (
           <div>
           <Draggable>
-              <button type="button" className="btn btn-warning" style={{border: "2px solid black", borderRadius: "10px", padding:"10px 0", width:"100px"}}>
+              <button type="button" classNameName="btn btn-warning" style={{border: "2px solid black", borderRadius: "10px", padding:"10px 0", width:"100px"}}>
                 {obj.category}
                 <br></br>
                 ${obj.amount}
@@ -29,13 +29,13 @@ export default function Field2() {
     }
     
     return(
-    <div class="container">
-      <div class="row">
-        <div class="col-lg" style={{border: "2px solid black"}}>
+    <div className="container">
+      <div className="row">
+        <div className="col-lg" style={{border: "2px solid black", height:"500px"}}>
           <h2>Current Expenses</h2>
           {displayData()}
         </div>
-        <div class="col-lg" style={{border: "2px solid black"}}>
+        <div className="col-lg" style={{border: "2px solid black", height:"500px"}}>
           <h2>Delete Expenses</h2>
         </div>
       </div>

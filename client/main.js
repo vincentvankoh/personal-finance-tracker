@@ -15,7 +15,7 @@ import axios from "axios";
 
 export default function Main() {
     const dispatch = useDispatch();
-    const updateData = (pass) => dispatch(updateUserData(pass))
+    const updateData = (pass) => dispatch(updateUserData(pass));
 
     useEffect( () => {
         axios.get("http://localhost:3000/data/")

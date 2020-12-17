@@ -23,7 +23,8 @@ dataController.findAll = (req, res, next) => {
 }
 
 dataController.findByUser = (req, res, next) => {
-    let user = req.body.user
+    console.log("entering findByUser")
+    let user = req.query.user;
     let query = `select * from Data where user_id = $1`
     let params = [user]
     db.query(query, params, (err, result) => {

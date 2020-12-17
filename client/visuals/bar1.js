@@ -9,7 +9,7 @@ import {
   VerticalBarSeries
 } from "react-vis";
 
-export default function Example(props) {
+export default function Bar1(props) {
   return (
     <XYPlot margin={{bottom: 70}} xType="ordinal" width={300} height={300}>
       <VerticalGridLines />

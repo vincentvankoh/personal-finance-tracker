@@ -18,7 +18,11 @@ export default function Main() {
     const updateData = (pass) => dispatch(updateUserData(pass));
 
     useEffect( () => {
-        axios.get("http://localhost:3000/data/")
+        axios.get("http://localhost:3000/data/userData/", {
+            params: {
+                user: 2
+            }
+        })
         .then(res => {
             console.log(res);
             updateData(res.data);

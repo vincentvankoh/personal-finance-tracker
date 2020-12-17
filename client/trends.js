@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from "./sidebar";
 import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 export default function Trends() {
   return(
@@ -15,7 +16,9 @@ export default function Trends() {
                     <div className="container-fluid">
                         <h1 className="mt-4">Trends</h1>
                         <ol className="breadcrumb mb-4">
-                            <li className="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li className="breadcrumb-item">
+                            <Link to="/home">Home</Link>
+                                </li>
                             <li className="breadcrumb-item active">Trends</li>
                         </ol>
                         <div className="card mb-4">

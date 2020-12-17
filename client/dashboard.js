@@ -9,7 +9,7 @@ import Pie1 from "./visuals/pie1";
 import Bar1 from "./visuals/bar1";
 
 export default function Dashboard() {
-    let id
+    let id;
     useEffect(() =>{
         id = Cookies.get('id')
         console.log(id)

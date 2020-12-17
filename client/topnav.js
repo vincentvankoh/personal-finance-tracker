@@ -24,7 +24,7 @@ export default function Topnav() {
                         <a className="dropdown-item" href="#">Settings</a>
                         <a className="dropdown-item" href="#">Activity Log</a>
                         <div className="dropdown-divider"></div>
-                        <Link className="dropdown-item" to="/login">Logout</Link>
+                        <a className="dropdown-item" href="/logout">Logout</a>
                     </div>
                 </li>
             </ul>

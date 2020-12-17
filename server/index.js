@@ -12,6 +12,7 @@ const db = require('./Models/FinancialModel')
 const userRouter = require('./Routes/userRouter')
 const dataRouter = require('./Routes/dataRouter')
 const authRouter = require('./Routes/authRouter')
+const loginRouter = require('./Routes/loginRouter')
 
 const app = express()
 
@@ -19,14 +20,15 @@ const app = express()
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended : true}))
 app.use(cookieSession({maxAge: 24*60*60*1000, keys: ['kasjhfaksj']}))
-app.use(cookieSession({ maxAge: 24 * 60 * 60 * 1000, keys: ['kfhaskfh'] }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(cookieSession({ maxAge: 24 * 60 * 60 * 1000, keys: ['kfhaskfh'] }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(cookieParser())
 
 app.use('/user', userRouter)
 app.use('/data', dataRouter)
-app.use('/auth', authRouter);
+app.use('/auth', authRouter)
+app.use('/logout',loginRouter)
 
 
 

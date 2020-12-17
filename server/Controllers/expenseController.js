@@ -32,7 +32,7 @@ expenseController.add = (req,res,next) =>{
             return next()
         } else {
             console.log('added into expense')
-            return next()
+            return next() 
         }
     })
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import Expenses from "./expenses";
 import Plan from "./plan";
@@ -8,8 +8,16 @@ import Tables from "./tables";
 import Trends from "./trends";
 import Habits from "./habits";
 import Dashboard from "./dashboard";
+import Cookies from 'js-cookie';
 
 export default function Main() {
+    useEffect( () => {
+        fetch("/data", {
+            id: Cookies.get('id')
+        })
+
+    }, []);
+    
     return(
         <BrowserRouter>
             <Switch>
@@ -25,9 +33,6 @@ export default function Main() {
                 <Route path={"/charts"}>
                     <Charts />
                 </Route>
-                <Route path={"/login"}>
-                    <Login />
-                </Route>
                 <Route path={"/tables"} >
                     <Tables />
                 </Route>
@@ -36,6 +41,9 @@ export default function Main() {
                 </Route>
                 <Route path={"/habits"} >
                     <Habits />
+                </Route>
+                <Route path={"/"}>
+                    <Login />
                 </Route>
             </Switch>
 

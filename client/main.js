@@ -18,10 +18,16 @@ export default function Main() {
     const updateData = (pass) => dispatch(updateUserData(pass));
 
     useEffect( () => {
-        axios.get("http://localhost:3000/data/")
+        axios.get("http://localhost:3000/data/userData" , {params : {user: 2}})
         .then(res => {
             console.log(res);
             updateData(res.data);
+        })
+        .catch(err =>console.log("error", err))
+
+        axios.post("http://localhost:3000/data/add" , {user: 'b'})
+        .then(res => {
+            console.log(res);
         })
         .catch(err =>console.log("error", err))
     }, []);
@@ -58,5 +64,3 @@ export default function Main() {
         </BrowserRouter>
     ); // end of return
 }
-
-

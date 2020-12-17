@@ -12,7 +12,7 @@ export default function Dashboard() {
     let id;
     useEffect(() =>{
         id = Cookies.get('id')
-        console.log(id)
+        console.log("id from backend", id)
     }, [])
 
   return(

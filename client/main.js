@@ -9,13 +9,21 @@ import Trends from "./trends";
 import Habits from "./habits";
 import Dashboard from "./dashboard";
 import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
+import { updateUserData } from "./redux/actions";
+import axios from "axios";
 
 export default function Main() {
-    useEffect( () => {
-        fetch("/data", {
-            id: Cookies.get('id')
-        })
+    const dispatch = useDispatch();
+    const updateData = (pass) => dispatch(updateUserData(pass))
 
+    useEffect( () => {
+        axios.get("http://localhost:3000/data/")
+        .then(res => {
+            console.log(res);
+            updateData(res.data);
+        })
+        .catch(err =>console.log("error", err))
     }, []);
     
     return(

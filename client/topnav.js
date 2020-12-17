@@ -4,7 +4,9 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 export default function Topnav() {
   return(
     <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a className="navbar-brand" href="index.html">Financial Planner</a>
+            <Link className="navbar-brand" to="/home">
+                Financial Planner
+            </Link>
             <button className="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i className="fas fa-bars"></i></button>
             <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div className="input-group">
@@ -22,7 +24,7 @@ export default function Topnav() {
                         <a className="dropdown-item" href="#">Settings</a>
                         <a className="dropdown-item" href="#">Activity Log</a>
                         <div className="dropdown-divider"></div>
-                        <Link className="dropdown-item" to="/login">Logout</Link>
+                        <a className="dropdown-item" href="/logout">Logout</a>
                     </div>
                 </li>
             </ul>

@@ -2,16 +2,16 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
+// the scope is what is being retrieved (profile info in this case)
 router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
 // the authenticate exchanges the code with the information
-router.get('/google/redirect', passport.authenticate('google'),
-(req,res) => {res.send('reached callback uri')})
+// once the user is redirected here, call on the strategy once again
+router.get('/google/redirect', passport.authenticate('google'), (req,res) => {
+	res.cookie('id', `${req.user.id}`).redirect(`/home`)
+})
 
-router.get(
-	'/google/callback', passport.authenticate('google'), (req, res) => {
-		console.log(req.user)
-		res.redirect('/home/' + req.user._id);
-	});
+
+
 
 module.exports = router;

@@ -31,6 +31,7 @@ module.exports = {
       historyApiFallback: true,
       publicPath: '/build/',
       proxy: {
+        '/logout' : {target : 'http://localhost:3000'},
         '/auth/google': {
           target: 'http://localhost:3000'
         }

@@ -14,7 +14,8 @@ userController.findAll = (req, res, next) => {
             return next()
         }
         else{
-            console.log(result)
+            // console.log(result)
+            res.locals.users = result.rows
             return next()
         }
 

@@ -12,6 +12,8 @@ const userRouter = require('./Routes/userRouter')
 const dataRouter = require('./Routes/dataRouter')
 const authRouter = require('./Routes/authRouter')
 const loginRouter = require('./Routes/loginRouter')
+const budgetRouter = require('./Routes/budgetRouter')
+const expenseRouter = require('./Routes/expenseRouter')
 
 const app = express()
 
@@ -28,6 +30,8 @@ app.use('/user', userRouter)
 app.use('/data', dataRouter)
 app.use('/auth', authRouter)
 app.use('/logout',loginRouter)
+app.use('/budget',budgetRouter)
+app.use('/expense', expenseRouter)
 
 
 

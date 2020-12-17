@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import Sidebar from "./sidebar";
-import Sidebarfooter from "./sidebarfooter";
 
 export default function Recommendations() {
   return(
@@ -32,7 +31,6 @@ export default function Recommendations() {
         </nav>
         <div id="layoutSidenav">
             <Sidebar />
-            <Sidebarfooter />
             <div id="layoutSidenav_content">
                 <main>
                     <div className="container-fluid">

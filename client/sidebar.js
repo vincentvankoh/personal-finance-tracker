@@ -12,23 +12,25 @@ export default function Sidebar() {
                     <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </Link>
-                <div className="sb-sidenav-menu-heading">Plan Finances </div>
+                <div className="sb-sidenav-menu-heading">Budget &amp; Expenses </div>
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
-                    Expenses and Plan
+                    Planning
                     <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav className="sb-sidenav-menu-nested nav">
-                        <Link className="nav-link" to="/expenses"> Expenses
+                        <Link className="nav-link" to="/expenses"> Plan Expenses
                         </Link>
-                        <Link className="nav-link" to="/plan"> Plan
+                        <Link className="nav-link" to="/plan"> Plan Budget
                         </Link>
                     </nav>
                 </div>
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                    <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
-                    Spending Analysis
+                    <div className="sb-nav-link-icon">
+                        <i className="fas fa-book-open"></i>
+                    </div>
+                        Analysis
                     <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">

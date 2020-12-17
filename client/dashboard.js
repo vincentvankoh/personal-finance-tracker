@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Footer from "./footer";
 import Sidebar from "./sidebar";
-import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
 import Cookies from 'js-cookie'
 import Line1 from "./visuals/line1";
@@ -33,7 +32,6 @@ export default function Dashboard() {
       <div id="layoutSidenav_nav">
           <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
               <Sidebar />
-              <Sidebarfooter />
           </nav>
           </div>
       <div id="layoutSidenav_content">
@@ -87,7 +85,7 @@ export default function Dashboard() {
                       </div>
                   </div>
                   <ol className="breadcrumb mb-4">
-                      <li className="breadcrumb-item active">Budget vs Expenses</li>
+                      <li className="breadcrumb-item active">Top Charts</li>
                   </ol>
                   <div className="row">
                       <div className="col-xl-6">
@@ -117,24 +115,23 @@ export default function Dashboard() {
                       <div className="col-xl-6">
                           <div className="card mb-4">
                               <div className="card-header">
-                                  <i className="fas fa-chart-area mr-1"></i>
-                                  Area Chart Example
+                                  <i className="fas fa-chart-bar mr-1"></i>
+                                  Bar Chart Example
                               </div>
                               <div className="card-body">
-                                  <canvas id="myAreaChart" width="100%" height="40">
-                                  </canvas>
-                              </div>
+                                  <Bar1 />
+                            </div>
                           </div>
                       </div>
                       <div className="col-xl-6">
                           <div className="card mb-4">
                               <div className="card-header">
-                                  <i className="fas fa-chart-bar mr-1"></i>
-                                  Budget over time
+                                  <i className="fas fa-chart-area mr-1"></i>
+                                  Expense % of Budget
                               </div>
                               <div className="card-body">
-                                <Line1 />
-                            </div>
+                                <Pie1 />
+                              </div>
                           </div>
                       </div>
                   </div>

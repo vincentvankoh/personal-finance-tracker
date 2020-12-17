@@ -1,9 +1,9 @@
 import React from 'react';
 import Sidebar from "./sidebar";
-import Sidebarfooter from "./sidebarfooter";
 import Topnav from "./topnav";
+import Footer from "./footer";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import Field from "./field";
+import Field1 from "./field1";
 
 export default function Plan() {
     return(
@@ -11,25 +11,22 @@ export default function Plan() {
             <Topnav />
             <div id="layoutSidenav">
                 <Sidebar />
-                <Sidebarfooter />
                 <div id="layoutSidenav_content">
                     <main>
-                        <Field />
-                    </main>
-                    <footer className="py-4 bg-light mt-auto">
                         <div className="container-fluid">
-                            <div className="d-flex align-items-center justify-content-between small">
-                                <div className="text-muted">Copyright &copy; Your Website 2020</div>
-                                <div>
-                                    <a href="#">Privacy Policy</a>
-                                    &middot;
-                                    <a href="#">Terms &amp; Conditions</a>
-                                </div>
-                            </div>
+                        <h1 className="mt-4">Plan Budget</h1>
+                            <ol className="breadcrumb mb-4">
+                                <li className="breadcrumb-item">
+                                <Link to="/home">Home</Link>
+                                    </li>
+                                <li className="breadcrumb-item active">Trends</li>
+                            </ol>
+                            <Field1 />
                         </div>
-                    </footer>
+                    </main>
+                    <Footer />
                 </div>
             </div>
-          </div>
+        </div>
       )
 }
